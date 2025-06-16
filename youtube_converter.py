@@ -16,3 +16,20 @@ def convert_to_mp3(video_path):
     video.write_audiofile(mp3_path)
     video.close()
     return mp3_path
+
+def main():
+    url = input("Enter YouTube video URL: ")
+    format_choice = input("Convert to (1) MP4 or (2) MP3? Enter 1 or 2: ")
+
+    video_path = download_video(url)
+
+    if format_choice == "1":
+        print(f"Video downloaded to: {video_path}")
+    elif format_choice == "2":
+        mp3_path = convert_to_mp3(video_path)
+        print(f"Audio extracted to: {mp3_path}")
+    else:
+        print("Invalid choice.")
+
+if __name__ == "__main__":
+    main()
